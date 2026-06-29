@@ -1,0 +1,28 @@
+Host 1
+IP Address: 192.168.x.x
+Open Port: 53/tcp (domain)
+
+
+Host 2
+IP Address: 192.168.x.x
+Open Ports:
+80/tcp (https)
+135/tcp (mrspc)
+139/tcp (netbios-ssn)
+445/tcp (microsoft-ds)
+
+Common services
+
+53/tcp: DNS is used for name resolution and zone transfers over TCP when needed.
+80/tcp: HTTP is the standard unencrypted web service. 
+135/tcp: Microsoft RPC Endpoint Mapper os used for mapping DCOM/RPC services to dynamic ports.
+139/tcp: NetBIOS Session Service is used for SMB file and printer sharing over NetBIOS.
+445/tcp: Microsoft-DS is used for Windows file sharing and related services.
+
+RISKS
+
+445/tcp (microsoft-ds) Is target for ransomware. Allows unauthorized network share access, data theft, and lateral movement.
+139/tcp (netbios-ssn) is Susceptible to enumeration of user accounts, shares, and system details.
+135/tcp Exposes system architecture details, services, and valid account names to attackers for targeted secondary exploits.
+53/tcp (domain) is vulnerable to DNS zone transfers, Denial of Service, or cache poisoning if unpatched. 
+80/tcp (http) is unencrypted HTTP while standard HTTPS uses port 443. Vulnerabilities depend entirely on the web server software hosted.
